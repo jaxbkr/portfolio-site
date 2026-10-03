@@ -130,7 +130,8 @@ const projects = [
     icon: Code2,
     color: C.mauve,
     desc: "Independent web project developed, deployed, and maintained from start to finish.",
-    tags: ["Web", "Git", "Deployment"],
+    tags: ["Next.js", "React", "JavaScript", "Tailwind CSS", "Supabase"],
+    stack: [["Application", "Next.js 15 · React 19"], ["Interface", "JavaScript · Tailwind CSS 4"], ["Data", "Supabase · SSR client"]],
     url: "https://github.com/jaxbkr/puzzle",
   },
   {
@@ -140,11 +141,12 @@ const projects = [
     icon: Activity,
     color: C.sky,
     desc: "Independent analytics-focused web project with full lifecycle ownership.",
-    tags: ["Analytics", "Web", "Operations"],
+    tags: ["Next.js", "React", "JavaScript", "Tailwind CSS", "Cloudflare", "Font Awesome"],
+    stack: [["Application", "Next.js 14 · React 18"], ["Interface", "Tailwind CSS 3 · Font Awesome"], ["Deployment tooling", "Cloudflare Pages"]],
     url: "https://github.com/jaxbkr/Jolt",
   },
 ];
-const skills = {
+const skillGroups = {
   "Endpoint & Support": [
     "Windows",
     "macOS",
@@ -176,6 +178,7 @@ const skills = {
   ],
   Tools: ["Git", "Jira", "Cloudflare", "Supabase", "OracleDB", "Playwright"],
 };
+const skills = { Programming: skillGroups.Programming, Tools: skillGroups.Tools, "Systems & Virtualization": skillGroups["Systems & Virtualization"], "Endpoint & Support": skillGroups["Endpoint & Support"] };
 function Panel({ children, className = "", accent }) {
   return (
     <motion.section
@@ -224,7 +227,7 @@ export default function App() {
     [filter, setFilter] = useState("All"),
     [command, setCommand] = useState(false),
     [searchTerm, setSearchTerm] = useState(""),
-    [focus, setFocus] = useState("Endpoint & Support"),
+    [focus, setFocus] = useState("Programming"),
     [copied, setCopied] = useState(""),
     [tour, setTour] = useState(false);
   const searchTrigger = useRef(null);
@@ -360,7 +363,7 @@ export default function App() {
             >
               <div className="identity">
                 <b>Jackson Baker</b>
-                <small>Desktop Support • Systems</small>
+                <small>Software Engineering • Systems</small>
                 <em>● Available for opportunities</em>
               </div>
               <label>Portal navigation</label>
@@ -400,8 +403,8 @@ export default function App() {
                 <small>Home / Portfolio overview</small>
                 <h1>Jackson Baker</h1>
                 <p>
-                  Your next dependable teammate. Explore the systems I support
-                  and the things I build.
+                  Software built with care. Explore my applications, automation,
+                  and the systems that keep them running.
                 </p>
               </div>
               <div className="actions">
@@ -427,11 +430,11 @@ export default function App() {
                 sub="University of Arkansas"
               />
               <Stat
-                icon={Server}
+                icon={Code2}
                 label="Focus area"
-                value="Infrastructure"
+                value="Software Engineering"
                 color={C.green}
-                sub="Endpoint to homelab"
+                sub="Web applications • Automation"
               />
               <Stat
                 icon={GraduationCap}
@@ -457,27 +460,27 @@ export default function App() {
                 />
                 <div className="pad">
                   <h2>
-                    Building dependable technology from <span>endpoint</span> to{" "}
-                    <span>infrastructure</span>.
+                    Building useful <span>software</span>. Understanding the{" "}
+                    <span>systems behind it</span>.
                   </h2>
                   <p>
-                    Computer Science student with hands-on experience in desktop
-                    support, endpoint deployment, IT infrastructure
-                    documentation, systems administration, testing, and modern
-                    web development.
+                    Computer Science student focused on software engineering, with
+                    experience in modern web development and automated testing.
+                    Hands-on work in desktop support, deployments, and a personal
+                    homelab brings a practical systems perspective to what I build.
                   </p>
                   <div className="mini">
                     <div>
                       <Cpu />
-                      Endpoint engineering
+                      Web development
                     </div>
                     <div>
                       <Network />
-                      Systems administration
+                      Automated testing
                     </div>
                     <div>
                       <Terminal />
-                      Automation & development
+                      Systems & automation
                     </div>
                   </div>
                 </div>
@@ -563,35 +566,14 @@ export default function App() {
             )}
           </div>
           <section id="experience">
-            <Title over="Experience resources" text="Deployment history" />
+            <Title over="Experience resources" text="Engineering & experience" />
             <div className="list">
-              {roles.map((r) => (
-                <Panel key={r.role} accent={r.color}>
-                  <details>
-                    <summary>
-                      <span
-                        style={{ color: r.color, background: `${r.color}16` }}
-                      >
-                        {r.date}
-                      </span>
-                      <div>
-                        <b>{r.role}</b>
-                        <small>{r.org}</small>
-                      </div>
-                    </summary>
-                    <ul>
-                      {r.bullets.map((b) => (
-                        <li key={b}>{b}</li>
-                      ))}
-                    </ul>
-                  </details>
-                </Panel>
-              ))}
+              {roles.map((r, i) => <RoleCard key={r.role} role={r} index={i} />)}
             </div>
           </section>
           <section id="projects">
             <div className="section-row">
-              <Title over="Project resources" text="Resource groups" />
+              <Title over="Project resources" text="Projects & builds" />
               <div className="filters">
                 {["All", "Autonomous Systems", "Infrastructure", "Web"].map(
                   (f) => (
@@ -651,10 +633,18 @@ export default function App() {
                       <label style={{ color: p.color }}>{p.type}</label>
                       <p>{p.desc}</p>
                       <div className="tags">
-                        {p.tags.map((t) => (
+                        {!p.stack && p.tags.map((t) => (
                           <span key={t}>{t}</span>
                         ))}
                       </div>
+                      {p.stack && (
+                        <div className="tech-stack" style={{ "--stack-accent": p.color }}>
+                          <div className="stack-heading"><Code2 size={16} /><b>Tech stack</b><span>Built with</span></div>
+                          <dl>{p.stack.map(([layer, tech]) => (
+                            <div key={layer}><dt>{layer}</dt><dd>{tech}</dd></div>
+                          ))}</dl>
+                        </div>
+                      )}
                       {p.url && (
                         <a href={p.url}>
                           Open repository <ExternalLink />
@@ -670,7 +660,7 @@ export default function App() {
             <Title over="Skills inventory" text="Technical asset catalog" />
             <div className="skill-grid">
               {Object.entries(skills).map(([g, list], i) => {
-                const I = [Cpu, Server, Code2, Terminal][i];
+                const I = [Code2, Terminal, Server, Cpu][i];
                 return (
                   <Panel key={g}>
                     <Head
@@ -748,8 +738,9 @@ export default function App() {
                 <small>Create support request</small>
                 <h2>Let’s build dependable systems.</h2>
                 <p>
-                  I am pursuing opportunities in IT support, systems
-                  administration, and infrastructure engineering.
+                  I am pursuing software engineering opportunities, bringing
+                  hands-on experience with the people, infrastructure, and
+                  support that keep software running.
                 </p>
                 <div className="actions">
                   <a
@@ -809,7 +800,7 @@ export default function App() {
                   }
                 }}
               >
-                <div>
+                <div className="command-search">
                   <Search />
                   <input
                     aria-label="Search sections, projects, and skills"
@@ -869,5 +860,23 @@ function Title({ over, text }) {
       <small>{over}</small>
       <h2>{text}</h2>
     </div>
+  );
+}
+
+function RoleCard({ role: r, index }) {
+  const [open, setOpen] = useState(false);
+  const reduced = useReducedMotion();
+  const id = `role-description-${index}`;
+  return (
+    <Panel accent={r.color}>
+      <button className="role-toggle" aria-expanded={open} aria-controls={id} onClick={() => setOpen(!open)}>
+        <span className="role-date" style={{ color: r.color, background: `${r.color}16` }}>{r.date}</span>
+        <span className="role-title"><b>{r.role}</b><small>{r.org}</small></span>
+        <motion.span className="role-chevron" animate={{ rotate: open ? 90 : 0 }} transition={{ duration: reduced ? 0 : 0.25 }}><ChevronRight size={20} /></motion.span>
+      </button>
+      <motion.div id={id} initial={false} animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }} transition={{ duration: reduced ? 0 : 0.3, ease: [0.22, 1, 0.36, 1] }} className="role-description" aria-hidden={!open}>
+        <ul>{r.bullets.map(b => <li key={b}>{b}</li>)}</ul>
+      </motion.div>
+    </Panel>
   );
 }
