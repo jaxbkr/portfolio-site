@@ -106,6 +106,15 @@ const roles = [
 ];
 const projects = [
   {
+    name: "OneAnother",
+    type: "Web",
+    status: "In progress",
+    icon: UserRound,
+    color: C.teal,
+    desc: "A church membership directory and prayer request application helping local church members connect, share personal prayer requests, and care for one another through intentional, specific prayer.",
+    tags: ["Church Community", "Membership Directory", "Prayer Requests"],
+  },
+  {
     name: "Project WAYPNT",
     type: "Autonomous Systems",
     status: "In progress",
@@ -137,13 +146,14 @@ const projects = [
   {
     name: "Jolt Analytics",
     type: "Web",
-    status: "Repository",
+    status: "Live",
     icon: Activity,
     color: C.sky,
     desc: "Independent analytics-focused web project with full lifecycle ownership.",
     tags: ["Next.js", "React", "JavaScript", "Tailwind CSS", "Cloudflare", "Font Awesome"],
     stack: [["Application", "Next.js 14 · React 18"], ["Interface", "Tailwind CSS 3 · Font Awesome"], ["Deployment tooling", "Cloudflare Pages"]],
     url: "https://github.com/jaxbkr/Jolt",
+    liveUrl: "https://jolt.jacksonbaker.dev",
   },
 ];
 const skillGroups = {
@@ -337,7 +347,7 @@ export default function App() {
           </button>
           <div className="brand">
             <Cloud />
-            <span>Jackson Cloud Portal</span>
+            <span>Jackson Baker | Software</span>
           </div>
           <button
             ref={searchTrigger}
@@ -363,7 +373,7 @@ export default function App() {
             >
               <div className="identity">
                 <b>Jackson Baker</b>
-                <small>Software Engineering • Systems</small>
+                <small>Software Engineering • Ministry</small>
                 <em>● Available for opportunities</em>
               </div>
               <label>Portal navigation</label>
@@ -403,8 +413,8 @@ export default function App() {
                 <small>Home / Portfolio overview</small>
                 <h1>Jackson Baker</h1>
                 <p>
-                  Software built with care. Explore my applications, automation,
-                  and the systems that keep them running.
+                  Software for God’s glory. Building useful applications to
+                  serve people and equip churches.
                 </p>
               </div>
               <div className="actions">
@@ -434,7 +444,7 @@ export default function App() {
                 label="Focus area"
                 value="Software Engineering"
                 color={C.green}
-                sub="Web applications • Automation"
+                sub="Churches • Christian ministry"
               />
               <Stat
                 icon={GraduationCap}
@@ -460,14 +470,16 @@ export default function App() {
                 />
                 <div className="pad">
                   <h2>
-                    Building useful <span>software</span>. Understanding the{" "}
-                    <span>systems behind it</span>.
+                    Building <span>software</span> to serve people and{" "}
+                    <span>equip churches</span>.
                   </h2>
                   <p>
-                    Computer Science student focused on software engineering, with
-                    experience in modern web development and automated testing.
-                    Hands-on work in desktop support, deployments, and a personal
-                    homelab brings a practical systems perspective to what I build.
+                    I’m a follower of Jesus and a Computer Science student graduating
+                    in December 2026. My goal is to use software engineering for God’s
+                    glory: helping churches and Christian ministries serve their
+                    communities with practical, dependable tools. I bring experience
+                    in web development, automated testing, and hands-on systems work
+                    to the applications I build.
                   </p>
                   <div className="mini">
                     <div>
@@ -645,6 +657,11 @@ export default function App() {
                           ))}</dl>
                         </div>
                       )}
+                      {p.liveUrl && (
+                        <a href={p.liveUrl} target="_blank" rel="noopener noreferrer">
+                          View live project <ExternalLink />
+                        </a>
+                      )}
                       {p.url && (
                         <a href={p.url}>
                           Open repository <ExternalLink />
@@ -735,12 +752,12 @@ export default function App() {
           <section id="contact">
             <Panel accent={C.blue} className="contact">
               <div className="pad">
-                <small>Create support request</small>
-                <h2>Let’s build dependable systems.</h2>
+                <small>Software in service of ministry</small>
+                <h2>Let’s build tools that serve your church.</h2>
                 <p>
-                  I am pursuing software engineering opportunities, bringing
-                  hands-on experience with the people, infrastructure, and
-                  support that keep software running.
+                  I’m pursuing software engineering opportunities with churches
+                  and Christian ministries. If your team needs practical software
+                  to support its work and care for people, I’d love to connect.
                 </p>
                 <div className="actions">
                   <a
@@ -762,8 +779,7 @@ export default function App() {
               </div>
             </Panel>
             <footer>
-              Jackson Baker Cloud Portal • Built with curiosity. Made to
-              explore.
+              Jackson Baker • Built to serve. For God’s glory.
             </footer>
           </section>
         </main>
