@@ -20,13 +20,17 @@ test('Jolt offers a live project link while retaining its repository', async () 
   assert.match(html, /href="https:\/\/github\.com\/jaxbkr\/Jolt"/);
 });
 
-test('mission messaging centers God’s glory and serving churches', async () => {
+test('primary positioning centers IT infrastructure and systems administration', async () => {
   const html = await renderPortfolio();
   const overview = html.split('<section id="overview">')[1].split('<section id="experience">')[0];
   const contact = html.split('<section id="contact">')[1];
-  assert.ok(overview.includes('Software for God’s glory.'), 'Hero must state the mission');
-  assert.ok(overview.includes('equip churches'), 'Profile must explain who the software serves');
-  assert.ok(contact.includes('Christian ministries'), 'Contact must invite ministry opportunities');
+  assert.ok(overview.includes('IT Infrastructure'), 'Focus area must emphasize infrastructure');
+  assert.ok(overview.includes('Systems administration'), 'Overview must describe systems administration');
+  assert.ok(overview.includes('reliable systems'), 'Profile must describe the practical focus');
+  assert.ok(contact.includes('IT infrastructure and systems administration opportunities'), 'Contact must invite IT roles');
+  assert.doesNotMatch(overview + contact, /God’s glory|equip churches|Christian ministries|serve your church/);
+  const systemsRoute = html.indexOf('aria-pressed="true"');
+  assert.ok(html.slice(systemsRoute, systemsRoute + 150).includes('Systems &amp; Virtualization'), 'Systems must be the default toolkit route');
 });
 
 test('OneAnother is an in-progress church directory and prayer application', async () => {

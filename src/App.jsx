@@ -188,7 +188,7 @@ const skillGroups = {
   ],
   Tools: ["Git", "Jira", "Cloudflare", "Supabase", "OracleDB", "Playwright"],
 };
-const skills = { Programming: skillGroups.Programming, Tools: skillGroups.Tools, "Systems & Virtualization": skillGroups["Systems & Virtualization"], "Endpoint & Support": skillGroups["Endpoint & Support"] };
+const skills = { "Systems & Virtualization": skillGroups["Systems & Virtualization"], "Endpoint & Support": skillGroups["Endpoint & Support"], Programming: skillGroups.Programming, Tools: skillGroups.Tools };
 function Panel({ children, className = "", accent }) {
   return (
     <motion.section
@@ -237,7 +237,7 @@ export default function App() {
     [filter, setFilter] = useState("All"),
     [command, setCommand] = useState(false),
     [searchTerm, setSearchTerm] = useState(""),
-    [focus, setFocus] = useState("Programming"),
+    [focus, setFocus] = useState("Systems & Virtualization"),
     [copied, setCopied] = useState(""),
     [tour, setTour] = useState(false);
   const searchTrigger = useRef(null);
@@ -347,7 +347,7 @@ export default function App() {
           </button>
           <div className="brand">
             <Cloud />
-            <span>Jackson Baker | Software</span>
+            <span>Jackson Baker | IT & Systems</span>
           </div>
           <button
             ref={searchTrigger}
@@ -373,7 +373,7 @@ export default function App() {
             >
               <div className="identity">
                 <b>Jackson Baker</b>
-                <small>Software Engineering • Ministry</small>
+                <small>IT Infrastructure • Systems Administration</small>
                 <em>● Available for opportunities</em>
               </div>
               <label>Portal navigation</label>
@@ -413,8 +413,8 @@ export default function App() {
                 <small>Home / Portfolio overview</small>
                 <h1>Jackson Baker</h1>
                 <p>
-                  Software for God’s glory. Building useful applications to
-                  serve people and equip churches.
+                  IT infrastructure and systems administration. Building and
+                  supporting reliable systems that keep people connected.
                 </p>
               </div>
               <div className="actions">
@@ -442,9 +442,9 @@ export default function App() {
               <Stat
                 icon={Code2}
                 label="Focus area"
-                value="Software Engineering"
+                value="IT Infrastructure"
                 color={C.green}
-                sub="Churches • Christian ministry"
+                sub="Systems administration • Automation"
               />
               <Stat
                 icon={GraduationCap}
@@ -470,29 +470,30 @@ export default function App() {
                 />
                 <div className="pad">
                   <h2>
-                    Building <span>software</span> to serve people and{" "}
-                    <span>equip churches</span>.
+                    Building <span>reliable systems</span>. Supporting the{" "}
+                    <span>people who use them</span>.
                   </h2>
                   <p>
-                    I’m a follower of Jesus and a Computer Science student graduating
-                    in December 2026. My goal is to use software engineering for God’s
-                    glory: helping churches and Christian ministries serve their
-                    communities with practical, dependable tools. I bring experience
-                    in web development, automated testing, and hands-on systems work
-                    to the applications I build.
+                    I’m a Computer Science student graduating in December 2026,
+                    focused on IT infrastructure and systems administration. I bring
+                    hands-on experience in desktop support, endpoint deployment,
+                    and troubleshooting, alongside a homelab built around Linux,
+                    Proxmox, Docker, and networking. My background in development
+                    and automated testing helps me approach systems work with
+                    practical tools and a problem-solving mindset.
                   </p>
                   <div className="mini">
                     <div>
                       <Cpu />
-                      Web development
+                      Systems administration
                     </div>
                     <div>
                       <Network />
-                      Automated testing
+                      Endpoint support
                     </div>
                     <div>
                       <Terminal />
-                      Systems & automation
+                      Infrastructure & automation
                     </div>
                   </div>
                 </div>
@@ -578,7 +579,7 @@ export default function App() {
             )}
           </div>
           <section id="experience">
-            <Title over="Experience resources" text="Engineering & experience" />
+            <Title over="Experience resources" text="IT & professional experience" />
             <div className="list">
               {roles.map((r, i) => <RoleCard key={r.role} role={r} index={i} />)}
             </div>
@@ -677,7 +678,7 @@ export default function App() {
             <Title over="Skills inventory" text="Technical asset catalog" />
             <div className="skill-grid">
               {Object.entries(skills).map(([g, list], i) => {
-                const I = [Code2, Terminal, Server, Cpu][i];
+                const I = [Server, Cpu, Code2, Terminal][i];
                 return (
                   <Panel key={g}>
                     <Head
@@ -752,12 +753,12 @@ export default function App() {
           <section id="contact">
             <Panel accent={C.blue} className="contact">
               <div className="pad">
-                <small>Software in service of ministry</small>
-                <h2>Let’s build tools that serve your church.</h2>
+                <small>IT infrastructure & systems administration</small>
+                <h2>Let’s keep your systems running.</h2>
                 <p>
-                  I’m pursuing software engineering opportunities with churches
-                  and Christian ministries. If your team needs practical software
-                  to support its work and care for people, I’d love to connect.
+                  I’m pursuing IT infrastructure and systems administration opportunities.
+                  If your team needs help supporting endpoints, managing systems,
+                  or improving day-to-day IT operations, I’d love to connect.
                 </p>
                 <div className="actions">
                   <a
@@ -779,7 +780,7 @@ export default function App() {
               </div>
             </Panel>
             <footer>
-              Jackson Baker • Built to serve. For God’s glory.
+              Jackson Baker • IT infrastructure, systems & support.
             </footer>
           </section>
         </main>
