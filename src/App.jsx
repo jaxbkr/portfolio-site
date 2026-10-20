@@ -62,8 +62,9 @@ const roles = [
     org: "University of Arkansas",
     color: C.blue,
     bullets: [
-      "Troubleshoot hardware, software, account, and printing issues across a large university environment.",
-      "Deploy and support Windows and macOS endpoints through imaging, configuration, and Microsoft Intune.",
+      "Diagnose and resolve hardware, software, account-access, and printing issues for students, faculty, and staff through Microsoft Teams and in-person support.",
+      "Deploy, configure, and support Windows and macOS endpoints through device imaging and Microsoft Intune management.",
+      "Guide faculty and staff through passkey enrollment at campus workshops, answering questions and troubleshooting setup to support university security compliance.",
     ],
   },
   {
@@ -72,8 +73,8 @@ const roles = [
     org: "TMG Global",
     color: C.teal,
     bullets: [
-      "Supported a healthcare technology deployment across 4 hospitals, 2 emergency departments, and 21 clinics.",
-      "Performed asset inventory, infrastructure documentation, and endpoint and wireless deployment planning.",
+      "Documented more than 2,000 devices during a healthcare technology deployment spanning 4 hospitals, 2 emergency departments, and 21 clinics.",
+      "Conducted enterprise asset inventories and documented infrastructure to support deployment planning for endpoint and wireless technology rollouts.",
     ],
   },
   {
@@ -82,7 +83,9 @@ const roles = [
     org: "NWA Apps",
     color: C.mauve,
     bullets: [
-      "Developed and maintained client applications with Next.js, Tailwind CSS, Git, and modern JavaScript.",
+      "Built a web-scraping integration that extracted podcast and episode information from Spotify for display on an external website.",
+      "Developed and maintained client web applications using Next.js, JavaScript, and Tailwind CSS.",
+      "Collaborated through Git-based development workflows to implement, refine, and deliver production features.",
     ],
   },
   {
@@ -91,7 +94,8 @@ const roles = [
     org: "University of Arkansas Housing",
     color: C.peach,
     bullets: [
-      "Developed leadership, communication, and conflict-resolution skills while supporting residents.",
+      "Addressed resident concerns and interpersonal conflicts, working with university staff to support residents and maintain daily housing operations.",
+      "Coordinated community programming with university staff to foster resident engagement and connection.",
     ],
   },
   {
@@ -100,7 +104,8 @@ const roles = [
     org: "Upflyte",
     color: C.green,
     bullets: [
-      "Automated testing with Playwright and collaborated through Jira to identify and resolve defects.",
+      "Automated application testing with Playwright to identify defects and support software reliability.",
+      "Collaborated with developers through Jira to track defects and coordinate their resolution.",
     ],
   },
 ];
